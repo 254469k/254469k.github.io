@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="manifest" href="images/manifest.json" />
+  <title>Delson</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+</head>
+
+<body id="top">
+  <nav class="navbar">
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#" data-target="history">History of Badminton</a></li>
+      <li><a href="#" data-target="types">Badminton Techniques</a></li>
+      <li><a href="#" data-target="footwork">Badminton Footwork</a></li>
+      <li><a href="#" data-target="game">Badminton Game</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- Base Background Section -->
+  <section class="background">
+    <div class="bg-image bg-image-1"></div>
+    <div class="bg-image bg-image-2 hidden"></div>
+
+    <div class="background-content">
+      <h1 class="background-title">Badminton</h1>
+      <div class="fullscreen-buttons">
+        <button id="btnFS">FullScreen</button>
+        <button id="btnWS">Exit Full Screen</button>
+      </div>
+    </div>
+    <span id="width"></span>
+    <span id="height"></span>
+  </section>
+
+  <!-- minigame -->
+  <section id="game" class="page-section game-section">
+    <div id="scoreboard">Player: 0 | Opponent: 0</div>
+    <div id="gameContainer">
+      <canvas id="gameCanvas" width="800" height="400"></canvas>
+      <img id="shuttleSprite" src="images/shuttle.png" class="hidden" />
+    </div>
+    <div class="game-controls">
+      <button id="startBtn">Start Game</button>
+      <button id="restartBtn" style="display:none;">Restart Game</button>
+    </div>
+
+    <!-- Quiz -->
+    <h1>Badminton Quiz</h1>
+
+    <fieldset>
+      <legend>1. What is the maximum number of points in a badminton game?</legend>
+      <label><input type="radio" name="q1" value="15"> 15</label><br>
+      <label><input type="radio" name="q1" value="21"> 21</label><br>
+      <label><input type="radio" name="q1" value="30"> 30</label><br>
+      <label><input type="radio" name="q1" value="25"> 25</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. What is the name of the object that players hit in badminton?</legend>
+      <label><input type="radio" name="q2" value="Ball"> Ball</label><br>
+      <label><input type="radio" name="q2" value="Shuttlecock"> Shuttlecock</label><br>
+      <label><input type="radio" name="q2" value="Puck"> Puck</label><br>
+      <label><input type="radio" name="q2" value="Disc"> Disc</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. How many players are there in a doubles match (per team)?</legend>
+      <label><input type="radio" name="q3" value="1"> 1</label><br>
+      <label><input type="radio" name="q3" value="2"> 2</label><br>
+      <label><input type="radio" name="q3" value="3"> 3</label><br>
+      <label><input type="radio" name="q3" value="4"> 4</label>
+    </fieldset>
+    <br>
+    <button id="btnSubmit">Submit Quiz</button>
+    <h3 id="scorebox">Not submitted</h3>
+    <br><br><br><br><br><br><br><br><br>
+  </section>
+
+  <!-- Scrollable Dynamic Section (Initially hidden) -->
+  <section id="footwork" class="page-section all-section">
+    <h1>Badminton Footwork</h1>
+
+    <p>
+      Badminton footwork is a critical foundation of the game that supports every stroke and movement on the court.
+      Unlike raw power or technical shots alone, effective footwork allows players to position themselves optimally to
+      strike the shuttle with precision, speed, and balance. It involves a coordinated series of steps, lunges, jumps,
+      and
+      turns that help players transition smoothly between offensive and defensive plays.
+    </p>
+
+    <p>
+      Without proper footwork, even skilled players may struggle to reach the shuttle in time or lose balance while
+      executing a shot,
+      leading to unforced errors. Good footwork not only improves reaction time and shot accuracy but also reduces
+      fatigue
+      by promoting efficient movement. Whether you're attacking from the backcourt or intercepting a net shot, mastering
+      footwork
+      gives you the physical and strategic edge in every rally.
+    </p>
+
+    <p>
+      Below are the most common footwork techniques used in different zones of the court, each with its own specific
+      purpose
+      to help players move faster, stay balanced, and recover quickly for the next shot.
+    </p>
+
+    <h2>Split Step</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p><strong>Purpose:</strong> Prepares the body to move in any direction instantly.</p>
+        <p><strong>How:</strong> Just before your opponent hits the shuttle, perform a small jump and land with both
+          feet shoulder-width apart, knees bent, and body weight centered.</p>
+        <p><strong>When to Use:</strong> Before reacting to your opponent's shot — it's a reset position used
+          continuously during play.</p>
+      </div>
+      <div class="general-image">
+        <img src="images/splitstep.jpg" alt="Split Step" />
+      </div>
+    </div>
+
+    <h2>Lunge</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p><strong>Purpose:</strong> Reach low or net shots quickly while staying stable.</p>
+        <p><strong>How:</strong> Step forward firmly with one leg bent, keeping the back leg extended. Ensure your upper
+          body stays upright for balance.</p>
+        <p><strong>When to Use:</strong> When returning net drops or short front-court shots.</p>
+      </div>
+      <div class="general-image">
+        <img src="images/lunge.jpg" alt="Lunge" />
+      </div>
+    </div>
+
+    <h2>Cross Step</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p><strong>Purpose:</strong> Rapidly cover longer distances.</p>
+        <p><strong>How:</strong> Cross one leg over the other while sprinting toward a far court position. Rotate your
+          body as needed to stay aligned.</p>
+        <p><strong>When to Use:</strong> To chase deep clears or smashes toward the backcourt.</p>
+      </div>
+      <div class="general2-image">
+        <img src="images/crossstep.jpg" alt="Cross Step" />
+      </div>
+    </div>
+
+    <h2>Side Step</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p><strong>Purpose:</strong> Move sideways efficiently while maintaining balance and court awareness.</p>
+        <p><strong>How:</strong> Keep knees bent and body low while stepping to the side without crossing your feet.
+          Maintain a ready stance with arms in front.</p>
+        <p><strong>When to Use:</strong> When shifting laterally to intercept shots or return to center after a wide
+          shot.</p>
+      </div>
+      <div class="general2-image">
+        <img src="images/sidestep.jpg" alt="Side Step" />
+      </div>
+    </div>
+
+    <h3>Footwork Diagram</h3>
+    <div class="footwork-image">
+      <img src="images/footwork.jpg" alt="Badminton Footwork Diagram" />
+    </div>
+  </section>
+
+  <section id="types" class="page-section all-section">
+    <h1>Badminton Techniques</h1>
+
+    <p>
+      Badminton techniques are essential skills that allow players to effectively control the shuttle, dictate the pace
+      of the game, and respond to various in-game situations. These techniques include offensive, defensive, and
+      tactical shots such as the smash, drop shot and net shot. Developing these skills not only improves a
+      player's agility and accuracy but also enhances their ability to outmaneuver opponents strategically.
+    </p>
+
+    <h2>Smash</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p>
+          The smash is one of the most powerful and aggressive shots in badminton. It involves hitting the shuttle
+          sharply
+          downwards from a high position, usually from the back of the court. A well-executed smash travels at high
+          speed
+          and is difficult for opponents to return, especially when aimed at their body or the corners of the court.
+          Smashes
+          are commonly used to end rallies or force weak returns.
+        </p>
+        <p>
+          There are variations of smashes, such as the jump smash (for more power and angle) and half-smash (for better
+          control). Players should focus on timing, wrist snap, and footwork to maximize the effectiveness of this shot.
+        </p>
+      </div>
+      <div class="general-image">
+        <img src="images/smash.jpg" alt="Badminton Smash" />
+      </div>
+    </div>
+
+    <h2>Drop Shot</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p>
+          A drop shot is a soft and deceptive stroke played from the back or mid-court that lands just over the net in
+          the
+          opponent's front court. It's used to disrupt the opponent’s rhythm by forcing them to move forward quickly.
+          Unlike
+          a smash, which relies on power, the drop shot relies on finesse, precision, and disguise.
+        </p>
+        <p>
+          Drop shots can be either slow (gently falling close to the net) or fast (falling slightly deeper but still
+          forcing
+          a forward move). Combining drop shots with smashes can keep your opponent guessing and create space for more
+          attacking opportunities.
+        </p>
+      </div>
+      <div class="general-image">
+        <img src="images/drop.jpg" alt="Badminton Drop Shot" />
+      </div>
+    </div>
+
+    <h2>Net Shot</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p>
+          A net shot is played very close to the net and is used when both players are near the front of the court. The
+          goal
+          is to return the shuttle just over the net, making it land as close as possible to the other side. This forces
+          your opponent to play a lift (a shot to the back court), giving you the chance to attack.
+        </p>
+        <p>
+          Good net shots require a delicate touch and precise control to keep the shuttle low and tight to the net. A
+          spinning net shot adds an extra layer of difficulty for the opponent, as the shuttle tumbles unpredictably,
+          making it harder to hit back cleanly.
+        </p>
+      </div>
+      <div class="general-image">
+        <img src="images/net.jpg" alt="Badminton Net Shot" />
+      </div>
+    </div>
+  </section>
+
+  <section id="history" class="page-section all-section">
+    <h1>History of Badminton</h1>
+
+    <p>
+      Badminton's origins can be traced back over 2,000 years to ancient civilizations in Greece, China, and India,
+      where games involving shuttlecocks were played. The modern version of the sport began to take shape in British
+      India during the mid-19th century. British army officers stationed in Pune (then known as Poona) encountered a
+      local game called "Poona," which involved hitting a shuttlecock back and forth using rackets. They introduced this
+      game to England, where it gained popularity among the British elite.
+    </p>
+
+    <p>
+      The sport was named after Badminton House in Gloucestershire, the ancestral home of the Duke of Beaufort, where it
+      was first played in England. The Bath Badminton Club, established in 1877, was pivotal in formalizing the rules of
+      the game. The first official badminton competition, the All England Open Badminton Championships, was held in
+      1899.
+    </p>
+
+    <p>
+      In 1934, the International Badminton Federation (IBF) was founded with nine member nations. The IBF later became
+      the Badminton World Federation (BWF) in 2006. Badminton was introduced as a demonstration sport at the 1972 Munich
+      Olympics and became an official Olympic sport at the 1992 Barcelona Games.
+    </p>
+
+    <h2>Shuttlecock</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p>
+          The shuttlecock, also known as a birdie, is central to badminton and has a unique design that influences
+          gameplay. Traditionally, shuttlecocks were handmade using 16 goose feathers embedded into a rounded cork base,
+          offering a precise aerodynamic flight. Today, professional shuttlecocks still follow this feathered design,
+          though synthetic versions exist for recreational play. The evolution of the shuttlecock combines craftsmanship
+          and scientific understanding, ensuring consistent flight patterns and durability, which are critical for
+          competitive badminton.
+        </p>
+      </div>
+      <div class="general-image">
+        <img src="images/shuttlecock.jpg" alt="Shuttlecock" />
+      </div>
+    </div>
+
+    <h2>Badminton Racket</h2>
+    <div class="general-flex">
+      <div class="general-text">
+        <p>
+          Early badminton rackets were crafted from wood with natural gut strings, which limited their durability and
+          power. As the sport evolved, metal rackets made from steel and aluminum were introduced, providing stronger
+          frames but with increased weight. The modern era of badminton rackets began with the use of carbon fiber and
+          graphite composites, creating ultra-lightweight, strong, and flexible rackets. This technological progress has
+          enhanced player control, speed, and power, allowing faster shots and better maneuverability on the court.
+        </p>
+      </div>
+      <div class="general-image">
+        <img src="images/racket.jpg" alt="Badminton Racket" />
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Lab02 Delson 254469k</p>
+    <img id="qrCodeImg" src="images/qrcode.png">
+  </footer>
+</body>
+
+</html>

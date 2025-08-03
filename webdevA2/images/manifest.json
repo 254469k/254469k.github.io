@@ -1,0 +1,13 @@
+{ "name": "WebDev A2",
+"short_name": "A2",
+"start_url": "https://254469k.github.io/webdevA2",
+"display": "standalone",
+"background_color": "#ffffff",
+"theme_color": "#00FF00",
+"icons": [
+{ "src": "shuttle.png",
+"sizes": "64x64",
+"type": "image/png"
+}
+]
+}

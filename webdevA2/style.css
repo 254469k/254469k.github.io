@@ -1,0 +1,431 @@
+/* Reset margin and padding, prevent horizontal overflow */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Navbar fixed to top, centered content, semi-transparent background */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hamburger menu button - hidden on desktop, visible on mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: 40px;
+    top: 100%;
+    transform: translateY(-50%);
+    height: 36px;
+    width: 36px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    padding: 5px 6px;
+    border-radius: 6px;
+    z-index: 1001; /* Above navbar links */
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+/* Navigation links - horizontal layout on desktop */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Full viewport background section with layered images */
+.background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: black;
+}
+
+/* Background images cover full section and fade with opacity */
+.bg-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: opacity 1.5s ease;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.bg-image.hidden {
+    opacity: 0;
+}
+
+/* Title text above background images */
+.background-title {
+    font-size: 6rem;
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+
+/* Content container above background */
+.background-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+/* Buttons container for fullscreen controls */
+.fullscreen-buttons {
+    z-index: 2;
+    margin-top: 20px;
+}
+
+.fullscreen-buttons button {
+    background-color: rgba(0, 123, 255, 0.85);
+    color: white;
+    padding: 10px 14px;
+    margin: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Sections hidden by default, show only active */
+.page-section {
+    display: none;
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.page-section.active {
+    display: block;
+}
+
+/* Sections with dark background and white text */
+.all-section {
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+
+/* Flex container for paired text and image */
+.general-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.general-text {
+    flex: 0 0 60%;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-weight: 500;
+    color: white;
+}
+
+.general-image {
+    flex: 0 0 39%;
+    text-align: left;
+}
+
+.general-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.general2-image {
+    flex: 0 0 30%;
+    text-align: left;
+}
+
+.general2-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.footwork-image {
+    flex: 0 0 39%;
+    text-align: center;
+}
+
+/* Headings styling */
+.all-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.all-section h2,
+.all-section h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.all-section h3 {
+    text-align: center;
+}
+
+/* Paragraphs styling */
+.all-section p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 1.25rem;
+}
+
+/* Footer fixed at bottom with semi-transparent background */
+footer {
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    color: white;
+    font-weight: bold;
+}
+
+/* QR code size in footer */
+#qrCodeImg {
+    width: 5%;
+}
+
+/* Game Section hidden by default, styled with green background */
+.game-section {
+    display: none;
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+    background-color: #1e7e34;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.game-section.active {
+    display: block;
+}
+
+/* Game container centered and max width */
+#gameContainer {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Canvas styling with border and rounded corners */
+#gameCanvas {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 2px solid white;
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Game control buttons styling */
+.game-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.game-controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.game-controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Scoreboard styling */
+#scoreboard {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 5px;
+    user-select: none; /* Prevent text selection */
+}
+
+/* Shuttle sprite absolute positioning and animation */
+#shuttleSprite {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    pointer-events: none; /* Ignore mouse events */
+    z-index: 10;
+    transition: transform 0.2s;
+}
+
+/* Shuttle spin animation */
+@keyframes shuttleSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(270deg);
+    }
+}
+
+#shuttleSprite.rotate {
+    animation: shuttleSpin 1s linear infinite;
+}
+
+/* Utility class to hide elements */
+.hidden {
+    display: none !important;
+}
+
+/* Custom font face */
+@font-face {
+    font-family: 'AtheneVoyage';
+    src: url('fonts/AtheneVoyage.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Headings use custom font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'AtheneVoyage', sans-serif;
+}
+
+/* Responsive design for screens up to 800px wide */
+@media (max-width: 800px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    /* Show hamburger menu on mobile */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Mobile nav links - vertical and hidden by default */
+    .nav-links {
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        display: none;
+    }
+
+    /* Show nav links when active */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    /* Hide QR code on mobile */
+    #qrCodeImg {
+        display: none;
+    }
+
+    /* Smaller background title */
+    .background-title {
+        font-size: 3.5rem;
+    }
+
+    /* Stack text and images vertically on mobile */
+    .general-flex {
+        flex-direction: column;
+    }
+
+    /* Make text and images full width and centered */
+    .general-text,
+    .general-image,
+    .general2-image {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    /* Images scale to container width */
+    .general-image img,
+    .general2-image img {
+        max-width: 100%;
+    }
+}
